@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+
     - name: SSH into EC2 and Prepare Target Directory
       uses: appleboy/ssh-action@v1.0.0
       with:
@@ -21,7 +21,6 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         port: 22
         script: |
-          sudo apt install nginx -y
           sudo mkdir -p /var/www/html/
           sudo chown -R ${{ secrets.EC2_USERNAME }} /var/www/html/
           sudo chmod -R 755 /var/www/html/
