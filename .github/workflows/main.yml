@@ -43,6 +43,4 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_SSH_KEY }}
         port: 22
-        script: |
-          sudo apt install nginx -y
           sudo systemctl restart nginx
