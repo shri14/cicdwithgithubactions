@@ -43,4 +43,4 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         port: 22
         script: |
-          sudo systemctl restart nginx
+         sudo systemctl restart nginx
